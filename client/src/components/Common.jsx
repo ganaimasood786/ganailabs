@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import { testimonials } from '../data.js';
+import { COMPANY, testimonials } from '../data.js';
 
 export function SectionHeader({ eyebrow, title, text, center = true }) {
   return (
@@ -32,7 +31,7 @@ export function CTA() {
             <h2>Have a project in mind?</h2>
             <p>Tell us about your idea and get a free consultation and estimate within 24 hours.</p>
           </div>
-          <Link to="/contact" className="btn btn-light">Let's Talk →</Link>
+          <a href={COMPANY.whatsapp} target="_blank" rel="noopener noreferrer" className="btn btn-light">Let's Talk →</a>
         </div>
       </div>
     </section>

@@ -41,7 +41,7 @@ export default function Contact() {
             <h3>Get in touch</h3>
             <p>Prefer email or a call? Reach us directly.</p>
             <div className="info-item"><span>✉️</span><a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a></div>
-            <div className="info-item"><span>📞</span><a href={`tel:${COMPANY.phone.replace(/\s/g, '')}`}>{COMPANY.phone}</a></div>
+            <div className="info-item"><span>💬</span><a href={COMPANY.whatsapp} target="_blank" rel="noopener noreferrer">{COMPANY.phone} (WhatsApp)</a></div>
             <div className="info-item"><span>📍</span><p>{COMPANY.address}</p></div>
             <div className="info-note">🔒 Your idea is safe with us. We sign NDAs on request.</div>
           </aside>

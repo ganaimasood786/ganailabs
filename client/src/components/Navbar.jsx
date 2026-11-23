@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import Logo from './Logo.jsx';
+import { COMPANY } from '../data.js';
 
 const links = [
   { to: '/', label: 'Home' },
@@ -37,7 +38,7 @@ export default function Navbar() {
               {l.label}
             </NavLink>
           ))}
-          <Link to="/contact" className="btn btn-primary nav-cta">Get a Quote</Link>
+          <a href={COMPANY.whatsapp} target="_blank" rel="noopener noreferrer" className="btn btn-primary nav-cta">Get a Quote</a>
         </nav>
         <button className={`hamburger ${open ? 'active' : ''}`} onClick={() => setOpen(!open)} aria-label="Toggle menu">
           <span /><span /><span />
