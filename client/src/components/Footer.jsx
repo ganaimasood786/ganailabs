@@ -35,7 +35,7 @@ export default function Footer() {
         <div>
           <h4>Get in touch</h4>
           <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
-          <a href={COMPANY.whatsapp} target="_blank" rel="noopener noreferrer">{COMPANY.phone} (WhatsApp)</a>
+          <a href={COMPANY.whatsapp} target="_blank" rel="noopener noreferrer">{COMPANY.phone}</a>
           <p>{COMPANY.address}</p>
         </div>
       </div>

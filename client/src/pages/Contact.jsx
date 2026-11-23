@@ -10,22 +10,34 @@ export default function Contact() {
 
   const update = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const submit = async (e) => {
+  const submit = (e) => {
     e.preventDefault();
-    setStatus({ state: 'loading', msg: '' });
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message);
-      setStatus({ state: 'success', msg: data.message });
-      setForm(empty);
-    } catch (err) {
-      setStatus({ state: 'error', msg: err.message || 'Could not send message.' });
-    }
+
+    // Build a WhatsApp message from the form and open the chat
+    const lines = [
+      'Hi GanaiLabs, I would like to discuss a project.',
+      '',
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      form.phone ? `Phone: ${form.phone}` : null,
+      form.service ? `Service: ${form.service}` : null,
+      form.budget ? `Budget: ${form.budget}` : null,
+      '',
+      `Project details: ${form.message}`,
+    ].filter((l) => l !== null);
+    const url = `https://wa.me/${COMPANY.whatsappNumber}?text=${encodeURIComponent(lines.join('\n'))}`;
+    const win = window.open(url, '_blank', 'noopener');
+    if (!win) window.location.href = url;
+
+    // Also keep a copy in the database (doesn't block the redirect)
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    }).catch(() => {});
+
+    setStatus({ state: 'success', msg: 'Opening WhatsApp… just press send in the chat.' });
+    setForm(empty);
   };
 
   return (
@@ -41,7 +53,7 @@ export default function Contact() {
             <h3>Get in touch</h3>
             <p>Prefer email or a call? Reach us directly.</p>
             <div className="info-item"><span>✉️</span><a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a></div>
-            <div className="info-item"><span>💬</span><a href={COMPANY.whatsapp} target="_blank" rel="noopener noreferrer">{COMPANY.phone} (WhatsApp)</a></div>
+            <div className="info-item"><span>💬</span><a href={COMPANY.whatsapp} target="_blank" rel="noopener noreferrer">{COMPANY.phone}</a></div>
             <div className="info-item"><span>📍</span><p>{COMPANY.address}</p></div>
             <div className="info-note">🔒 Your idea is safe with us. We sign NDAs on request.</div>
           </aside>
@@ -72,9 +84,7 @@ export default function Contact() {
             <label>Project details *
               <textarea name="message" rows="5" value={form.message} onChange={update} required />
             </label>
-            <button className="btn btn-primary" disabled={status.state === 'loading'}>
-              {status.state === 'loading' ? 'Sending…' : 'Send Message'}
-            </button>
+            <button className="btn btn-primary">Send Message</button>
             {status.msg && <p className={`form-msg ${status.state}`}>{status.msg}</p>}
           </form>
         </div>
