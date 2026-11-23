@@ -1,9 +1,9 @@
 export const COMPANY = {
   name: 'GanaiLabs',
   tagline: 'Engineering digital products that scale',
-  email: 'hello@ganailabs.com',
-  phone: '+91 00000 00000',
-  address: 'Srinagar, Jammu & Kashmir, India',
+  email: 'ganaimasood786@gmail.com',
+  phone: '+91 6005134523',
+  address: 'Sunjwan, Jammu, Jammu and Kashmir 180011',
 };
 
 export const services = [
