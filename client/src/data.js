@@ -15,7 +15,7 @@ export const FOUNDER = {
   quote: 'I started GanaiLabs to build software the way I would want it built for my own business: honest timelines, clean code and a team that truly cares about the result.',
   bio: [
     'Masood is a full-stack engineer who specialises in building scalable, high-performance applications with React, Node.js, Express and MongoDB, along with microservices on AWS and Kubernetes.',
-    'Before founding GanaiLabs he worked as a Full Stack Engineer at Ganai Care Solutions, writing Node.js microservices, Helm charts for Kubernetes deployments and React front ends, and has collaborated with teams of 20+ developers, QA engineers and scrum masters.',
+    'From 2023 to 2026 he worked as a Full Stack Engineer at Ganai Care Solutions, writing Node.js microservices, Helm charts for Kubernetes deployments and React front ends, alongside a team of 20+ developers, QA engineers and scrum masters. In 2026 he left to found GanaiLabs.',
   ],
   highlights: [
     { value: '4+', label: 'MERN products delivered' },
@@ -24,7 +24,8 @@ export const FOUNDER = {
   ],
   skills: ['React JS', 'Node JS', 'Express JS', 'MongoDB', 'Redux', 'MySQL', 'REST APIs', 'Microservices', 'Kafka', 'AWS', 'Kubernetes', 'CI/CD', 'Git', 'Jira'],
   experience: [
-    { period: '2023 – Present', title: 'Full Stack Engineer', org: 'Ganai Care Solutions Pvt. Ltd' },
+    { period: '2026 – Present', title: 'Founder & CEO', org: 'GanaiLabs' },
+    { period: '2023 – 2026', title: 'Full Stack Engineer', org: 'Ganai Care Solutions Pvt. Ltd' },
     { period: '2020 – 2021', title: 'Full Stack Developer (Internship)', org: 'Apprify Digital IT Hub Solutions Pvt. Ltd' },
   ],
   education: [
