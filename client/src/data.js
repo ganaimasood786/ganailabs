@@ -3,7 +3,7 @@ export const COMPANY = {
   tagline: 'Engineering digital products that scale',
   email: 'ganaimasood786@gmail.com',
   phone: '+91 6005134523',
-  address: 'Sunjwan, Jammu, Jammu and Kashmir 180011',
+  address: 'Duggan, Bani, Kathua, Jammu and Kashmir 184206',
   whatsappNumber: '916005134523',
   whatsapp: `https://wa.me/916005134523?text=${encodeURIComponent("Hi GanaiLabs, I'd like to discuss a project.")}`,
 };

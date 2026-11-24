@@ -8,16 +8,17 @@ import Services from './pages/Services.jsx';
 import Portfolio from './pages/Portfolio.jsx';
 import Contact from './pages/Contact.jsx';
 import NotFound from './pages/NotFound.jsx';
+import { useScrollReveal } from './components/Effects.jsx';
 
 const SITE = 'https://www.ganailabs.in';
 const SEO = {
   '/': {
-    title: 'GanaiLabs | Software, App & AI Development Company in Jammu',
-    description: 'GanaiLabs is a software development company in Jammu, J&K building mobile apps, websites, AI solutions and cloud products for startups and businesses.',
+    title: 'GanaiLabs | Software, App & AI Development Company in Jammu & Kashmir',
+    description: 'GanaiLabs is a software development company in Kathua, Jammu & Kashmir building mobile apps, websites, AI solutions and cloud products for startups and businesses.',
   },
   '/about': {
     title: 'About Us | GanaiLabs',
-    description: 'Meet GanaiLabs, a team of designers and engineers in Jammu building reliable web, mobile and AI software for clients worldwide.',
+    description: 'Meet GanaiLabs, a team of designers and engineers in Kathua, J&K building reliable web, mobile and AI software for clients worldwide.',
   },
   '/services': {
     title: 'Services: App, Web, AI & Cloud Development | GanaiLabs',
@@ -29,7 +30,7 @@ const SEO = {
   },
   '/contact': {
     title: 'Contact GanaiLabs | Get a Free Quote',
-    description: 'Talk to GanaiLabs about your app, website or AI project. Call or WhatsApp +91 6005134523 or email ganaimasood786@gmail.com. Based in Sunjwan, Jammu.',
+    description: 'Talk to GanaiLabs about your app, website or AI project. Call or WhatsApp +91 6005134523 or email ganaimasood786@gmail.com. Based in Duggan, Bani, Kathua, J&K.',
   },
 };
 
@@ -51,6 +52,7 @@ function RouteEffects() {
     setMeta('link[rel="canonical"]', 'href', SITE + pathname);
     setMeta('meta[name="robots"]', 'content', SEO[pathname] ? 'index, follow' : 'noindex');
   }, [pathname]);
+  useScrollReveal(pathname);
   return null;
 }
 
