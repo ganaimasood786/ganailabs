@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { SectionHeader, CTA, Testimonials } from '../components/Common.jsx';
 import { RotatingWords, CountUp, useParallax } from '../components/Effects.jsx';
+import { FounderTeaser } from '../components/Founder.jsx';
 import { services, stats, process, industries, techStack } from '../data.js';
 
 export default function Home() {
@@ -185,6 +186,7 @@ export default function Home() {
         </div>
       </section>
 
+      <FounderTeaser />
       <Testimonials />
       <CTA />
     </>

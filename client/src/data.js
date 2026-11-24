@@ -8,6 +8,43 @@ export const COMPANY = {
   whatsapp: `https://wa.me/916005134523?text=${encodeURIComponent("Hi GanaiLabs, I'd like to discuss a project.")}`,
 };
 
+export const FOUNDER = {
+  name: 'Masood Ahamed Ganai',
+  role: 'Founder & CEO',
+  photo: '/founder.webp',
+  quote: 'I started GanaiLabs to build software the way I would want it built for my own business: honest timelines, clean code and a team that truly cares about the result.',
+  bio: [
+    'Masood is a full-stack engineer who specialises in building scalable, high-performance applications with React, Node.js, Express and MongoDB, along with microservices on AWS and Kubernetes.',
+    'Before founding GanaiLabs he worked as a Full Stack Engineer at Ganai Care Solutions, writing Node.js microservices, Helm charts for Kubernetes deployments and React front ends, and has collaborated with teams of 20+ developers, QA engineers and scrum masters.',
+  ],
+  highlights: [
+    { value: '4+', label: 'MERN products delivered' },
+    { value: '1000+', label: 'REST APIs built & optimised' },
+    { value: 'MCA', label: 'Chandigarh University' },
+  ],
+  skills: ['React JS', 'Node JS', 'Express JS', 'MongoDB', 'Redux', 'MySQL', 'REST APIs', 'Microservices', 'Kafka', 'AWS', 'Kubernetes', 'CI/CD', 'Git', 'Jira'],
+  experience: [
+    { period: '2023 – Present', title: 'Full Stack Engineer', org: 'Ganai Care Solutions Pvt. Ltd' },
+    { period: '2020 – 2021', title: 'Full Stack Developer (Internship)', org: 'Apprify Digital IT Hub Solutions Pvt. Ltd' },
+  ],
+  education: [
+    { period: '2023', title: 'Master of Computer Applications (MCA)', org: 'Chandigarh University' },
+    { period: '2020', title: 'Bachelor of Computer Applications (BCA)', org: 'MRSPTU, Punjab' },
+  ],
+  projects: [
+    { name: 'Wandrstar', text: 'Online travel agency platform: core booking features.' },
+    { name: 'Eventutti', text: 'Marketplace connecting event service providers with customers.' },
+    { name: 'IndieTown', text: 'Invite-only community for independent bands and artists.' },
+  ],
+  links: [
+    { label: 'LinkedIn', short: 'in', url: 'https://www.linkedin.com/in/masood-ahamed-6a2a21200/' },
+    { label: 'X / Twitter', short: '𝕏', url: 'https://x.com/masoodGanai1' },
+    { label: 'Instagram', short: 'ig', url: 'https://www.instagram.com/masoodaganai/' },
+    { label: 'YouTube', short: 'yt', url: 'https://www.youtube.com/@masoodslens' },
+    { label: 'Portfolio', short: '🌐', url: 'https://masoodaganai.vercel.app/' },
+  ],
+};
+
 export const services = [
   { icon: '📱', title: 'Mobile App Development', text: 'Native and cross-platform iOS & Android apps built with Flutter, React Native, Swift and Kotlin.' },
   { icon: '💻', title: 'Web Development', text: 'Fast, secure and SEO-friendly websites and web apps using React, Next.js, Node.js and the MERN stack.' },

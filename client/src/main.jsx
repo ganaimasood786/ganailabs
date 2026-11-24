@@ -5,6 +5,7 @@ import App from './App.jsx';
 import './index.css';
 import './effects.css';
 import './mobile.css';
+import './founder.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

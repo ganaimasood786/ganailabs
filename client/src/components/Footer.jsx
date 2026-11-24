@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Logo from './Logo.jsx';
-import { COMPANY, services } from '../data.js';
+import { COMPANY, FOUNDER, services } from '../data.js';
 
 export default function Footer() {
   return (
@@ -13,10 +13,9 @@ export default function Footer() {
             web, mobile and AI products.
           </p>
           <div className="socials">
-            <a href="#" aria-label="LinkedIn">in</a>
-            <a href="#" aria-label="X / Twitter">𝕏</a>
-            <a href="#" aria-label="Instagram">ig</a>
-            <a href="#" aria-label="GitHub">gh</a>
+            {FOUNDER.links.filter((l) => l.label !== 'Portfolio').map((l) => (
+              <a key={l.label} href={l.url} target="_blank" rel="noopener noreferrer" aria-label={l.label} title={l.label}>{l.short}</a>
+            ))}
           </div>
         </div>
         <div>

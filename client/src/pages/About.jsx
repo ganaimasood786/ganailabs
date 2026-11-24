@@ -1,17 +1,11 @@
 import { PageHero, SectionHeader, CTA } from '../components/Common.jsx';
 import { stats } from '../data.js';
+import { FounderProfile } from '../components/Founder.jsx';
 
 const values = [
   { icon: '🎯', title: 'Our Mission', text: 'To help businesses of every size turn ideas into reliable, beautiful software that creates real value.' },
   { icon: '🔭', title: 'Our Vision', text: 'To be the most trusted technology partner for innovators across the globe.' },
   { icon: '💎', title: 'Our Values', text: 'Transparency, ownership, craftsmanship and long-term partnerships over short-term wins.' },
-];
-
-const team = [
-  { name: 'Founder & CEO', role: 'Leadership & Strategy' },
-  { name: 'Head of Engineering', role: 'Architecture & Delivery' },
-  { name: 'Design Lead', role: 'UI/UX & Branding' },
-  { name: 'AI Lead', role: 'Machine Learning & Data' },
 ];
 
 export default function About() {
@@ -63,20 +57,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <SectionHeader eyebrow="Leadership" title="The people behind GanaiLabs" />
-          <div className="grid grid-4">
-            {team.map((m) => (
-              <div key={m.name} className="card team-card">
-                <div className="team-avatar">{m.name[0]}</div>
-                <h3>{m.name}</h3>
-                <p>{m.role}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FounderProfile />
       <CTA />
     </>
   );

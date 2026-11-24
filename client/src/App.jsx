@@ -40,9 +40,14 @@ function setMeta(selector, attr, value) {
 }
 
 function RouteEffects() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const target = hash && document.getElementById(hash.slice(1));
+    if (target) {
+      setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    } else {
+      window.scrollTo(0, 0);
+    }
     const seo = SEO[pathname] || { title: 'Page not found | GanaiLabs', description: SEO['/'].description };
     document.title = seo.title;
     setMeta('meta[name="description"]', 'content', seo.description);
@@ -51,7 +56,7 @@ function RouteEffects() {
     setMeta('meta[property="og:url"]', 'content', SITE + pathname);
     setMeta('link[rel="canonical"]', 'href', SITE + pathname);
     setMeta('meta[name="robots"]', 'content', SEO[pathname] ? 'index, follow' : 'noindex');
-  }, [pathname]);
+  }, [pathname, hash]);
   useScrollReveal(pathname);
   return null;
 }
