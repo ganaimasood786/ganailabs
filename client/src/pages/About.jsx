@@ -1,5 +1,5 @@
 import { PageHero, SectionHeader, CTA } from '../components/Common.jsx';
-import { stats } from '../data.js';
+import { stats, FAQ } from '../data.js';
 import { FounderProfile } from '../components/Founder.jsx';
 
 const values = [
@@ -58,6 +58,20 @@ export default function About() {
       </section>
 
       <FounderProfile />
+
+      <section className="section alt" id="faq">
+        <div className="container faq-wrap">
+          <SectionHeader eyebrow="FAQ" title="Frequently asked questions about GanaiLabs" />
+          <div className="faq">
+            {FAQ.map((f, i) => (
+              <details key={f.q} className="faq-item" open={i === 0}>
+                <summary><h3>{f.q}</h3></summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
       <CTA />
     </>
   );

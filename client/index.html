@@ -24,32 +24,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    <!-- Structured data: tells Google this is a local business -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "GanaiLabs",
-        "url": "https://www.ganailabs.in/",
-        "logo": "https://www.ganailabs.in/favicon.svg",
-        "description": "Software, mobile app, web and AI development company.",
-        "email": "ganaimasood786@gmail.com",
-        "telephone": "+91-6005134523",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Duggan, Bani",
-          "addressLocality": "Kathua",
-          "addressRegion": "Jammu and Kashmir",
-          "postalCode": "184206",
-          "addressCountry": "IN"
-        },
-        "areaServed": "Worldwide",
-        "founder": { "@type": "Person", "name": "Masood Ahamed Ganai", "jobTitle": "Founder & CEO", "sameAs": ["https://www.linkedin.com/in/masood-ahamed-6a2a21200/", "https://x.com/masoodGanai1", "https://masoodaganai.vercel.app/"] }
-      }
-    </script>
+    <!-- Structured data (company, founder, FAQ) is injected per page at build time by scripts/prerender.mjs -->
+    <!--app-jsonld-->
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -7,7 +7,7 @@ const empty = { name: '', email: '', phone: '', service: '', budget: '', message
 // The website is a static site; the API runs as a separate Render web service.
 const API_BASE =
   import.meta.env.VITE_API_URL ||
-  (window.location.hostname.endsWith('ganailabs.in') ? 'https://ganailabs.onrender.com' : '');
+  (typeof window !== 'undefined' && window.location.hostname.endsWith('ganailabs.in') ? 'https://ganailabs.onrender.com' : '');
 
 export default function Contact() {
   const [form, setForm] = useState(empty);

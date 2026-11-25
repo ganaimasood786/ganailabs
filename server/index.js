@@ -46,8 +46,13 @@ app.use('/api/contact', contactRoutes);
 // Serve the React build in production
 const clientDist = path.join(__dirname, '..', 'client', 'dist');
 if (fs.existsSync(clientDist)) {
-  app.use(express.static(clientDist));
-  app.get(/^(?!\/api).*/, (_req, res) => res.sendFile(path.join(clientDist, 'index.html')));
+  app.use(express.static(clientDist, { redirect: false }));
+  // Serve the pre-rendered page for the route (e.g. /about -> about/index.html), else the app shell
+  app.get(/^(?!\/api).*/, (req, res) => {
+    const page = path.join(clientDist, req.path.replace(/^\/+|\/+$/g, ''), 'index.html');
+    const safe = page.startsWith(clientDist) && fs.existsSync(page);
+    res.sendFile(safe ? page : path.join(clientDist, 'index.html'));
+  });
 }
 
 app.listen(PORT, () => console.log(`GanaiLabs server running on port ${PORT}`));

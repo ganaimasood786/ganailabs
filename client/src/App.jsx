@@ -9,30 +9,7 @@ import Portfolio from './pages/Portfolio.jsx';
 import Contact from './pages/Contact.jsx';
 import NotFound from './pages/NotFound.jsx';
 import { useScrollReveal } from './components/Effects.jsx';
-
-const SITE = 'https://www.ganailabs.in';
-const SEO = {
-  '/': {
-    title: 'GanaiLabs | Software, App & AI Development Company in Jammu & Kashmir',
-    description: 'GanaiLabs is a software development company in Kathua, Jammu & Kashmir building mobile apps, websites, AI solutions and cloud products for startups and businesses.',
-  },
-  '/about': {
-    title: 'About Us | GanaiLabs',
-    description: 'Meet GanaiLabs, a team of designers and engineers in Kathua, J&K building reliable web, mobile and AI software for clients worldwide.',
-  },
-  '/services': {
-    title: 'Services: App, Web, AI & Cloud Development | GanaiLabs',
-    description: 'Mobile app development, website and MERN development, AI & machine learning, UI/UX design, cloud & DevOps, e-commerce and QA services by GanaiLabs.',
-  },
-  '/portfolio': {
-    title: 'Portfolio | GanaiLabs',
-    description: 'Explore apps, websites and AI products designed and engineered by GanaiLabs across healthcare, fintech, education, logistics and more.',
-  },
-  '/contact': {
-    title: 'Contact GanaiLabs | Get a Free Quote',
-    description: 'Talk to GanaiLabs about your app, website or AI project. Call or WhatsApp +91 6005134523 or email ganaimasood786@gmail.com. Based in Duggan, Bani, Kathua, J&K.',
-  },
-};
+import { SEO, SITE, NOT_FOUND } from './seo.js';
 
 function setMeta(selector, attr, value) {
   const el = document.querySelector(selector);
@@ -48,7 +25,7 @@ function RouteEffects() {
     } else {
       window.scrollTo(0, 0);
     }
-    const seo = SEO[pathname] || { title: 'Page not found | GanaiLabs', description: SEO['/'].description };
+    const seo = SEO[pathname] || NOT_FOUND;
     document.title = seo.title;
     setMeta('meta[name="description"]', 'content', seo.description);
     setMeta('meta[property="og:title"]', 'content', seo.title);

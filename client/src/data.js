@@ -8,6 +8,33 @@ export const COMPANY = {
   whatsapp: `https://wa.me/916005134523?text=${encodeURIComponent("Hi GanaiLabs, I'd like to discuss a project.")}`,
 };
 
+export const FAQ = [
+  {
+    q: 'Who is the founder of GanaiLabs?',
+    a: 'GanaiLabs was founded by Masood Ahamed Ganai, who is also the company’s CEO. Masood is a full-stack engineer specialising in React, Node.js, MongoDB, microservices and AWS. He founded GanaiLabs in 2026 after working as a Full Stack Engineer at Ganai Care Solutions from 2023 to 2026.',
+  },
+  {
+    q: 'Who is the CEO of GanaiLabs?',
+    a: 'Masood Ahamed Ganai is the Founder & CEO of GanaiLabs.',
+  },
+  {
+    q: 'When was GanaiLabs founded?',
+    a: 'GanaiLabs was founded in 2026 by Masood Ahamed Ganai.',
+  },
+  {
+    q: 'Where is GanaiLabs located?',
+    a: 'GanaiLabs is based in Duggan, Bani, Kathua, Jammu and Kashmir 184206, India, and works with clients across India and worldwide.',
+  },
+  {
+    q: 'What does GanaiLabs do?',
+    a: 'GanaiLabs is a software development company that builds mobile apps, websites and web apps (MERN stack), AI and machine-learning solutions, UI/UX design, cloud & DevOps, e-commerce and blockchain products, with full QA and testing.',
+  },
+  {
+    q: 'How can I contact GanaiLabs?',
+    a: 'You can call or WhatsApp GanaiLabs on +91 6005134523, email ganaimasood786@gmail.com, or use the contact form at www.ganailabs.in/contact.',
+  },
+];
+
 export const FOUNDER = {
   name: 'Masood Ahamed Ganai',
   role: 'Founder & CEO',
