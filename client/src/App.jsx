@@ -8,7 +8,7 @@ import Services from './pages/Services.jsx';
 import Portfolio from './pages/Portfolio.jsx';
 import Contact from './pages/Contact.jsx';
 import NotFound from './pages/NotFound.jsx';
-import { useScrollReveal } from './components/Effects.jsx';
+import { useScrollReveal, useClickEffects } from './components/Effects.jsx';
 import { SEO, SITE, NOT_FOUND } from './seo.js';
 
 function setMeta(selector, attr, value) {
@@ -35,6 +35,7 @@ function RouteEffects() {
     setMeta('meta[name="robots"]', 'content', SEO[pathname] ? 'index, follow' : 'noindex');
   }, [pathname, hash]);
   useScrollReveal(pathname);
+  useClickEffects();
   return null;
 }
 

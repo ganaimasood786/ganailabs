@@ -76,6 +76,48 @@ export function useScrollReveal(dep) {
   }, [dep]);
 }
 
+const CLICKABLE = '.btn, .filters button, .socials a, .founder-socials a, .faq-item summary, .hamburger';
+const SPARK_COLORS = ['#2563eb', '#7c3aed', '#06b6d4', '#10b981', '#f59e0b', '#f43f5e'];
+
+/** Ripple from the click point on every button, plus a colour spark burst on primary buttons. */
+export function useClickEffects() {
+  useEffect(() => {
+    if (reduceMotion()) return undefined;
+    const onDown = (e) => {
+      const el = e.target.closest(CLICKABLE);
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+
+      // Ripple
+      const size = Math.max(r.width, r.height) * 2.2;
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      ripple.style.cssText = `width:${size}px;height:${size}px;left:${x - size / 2}px;top:${y - size / 2}px`;
+      el.classList.add('has-ripple');
+      el.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+
+      // Spark burst on primary actions
+      if (el.matches('.btn-primary, .btn-light, .nav-cta')) {
+        for (let i = 0; i < 14; i++) {
+          const s = document.createElement('span');
+          const angle = (Math.PI * 2 * i) / 14 + Math.random() * 0.4;
+          const dist = 55 + Math.random() * 45;
+          const color = SPARK_COLORS[i % SPARK_COLORS.length];
+          s.className = i % 3 === 0 ? 'spark sq' : 'spark';
+          s.style.cssText = `left:${e.clientX}px;top:${e.clientY}px;background:${color};color:${color};--dx:${Math.cos(angle) * dist}px;--dy:${Math.sin(angle) * dist}px`;
+          document.body.appendChild(s);
+          s.addEventListener('animationend', () => s.remove());
+        }
+      }
+    };
+    document.addEventListener('pointerdown', onDown);
+    return () => document.removeEventListener('pointerdown', onDown);
+  }, []);
+}
+
 /** Moves the hero glow blobs slightly with the mouse for a parallax feel. */
 export function useParallax(ref) {
   useEffect(() => {
