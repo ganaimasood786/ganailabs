@@ -4,6 +4,11 @@ import { COMPANY, services } from '../data.js';
 
 const empty = { name: '', email: '', phone: '', service: '', budget: '', message: '' };
 
+// The website is a static site; the API runs as a separate Render web service.
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  (window.location.hostname.endsWith('ganailabs.in') ? 'https://ganailabs.onrender.com' : '');
+
 export default function Contact() {
   const [form, setForm] = useState(empty);
   const [status, setStatus] = useState({ state: 'idle', msg: '' });
@@ -26,15 +31,19 @@ export default function Contact() {
       `Project details: ${form.message}`,
     ].filter((l) => l !== null);
     const url = `https://wa.me/${COMPANY.whatsappNumber}?text=${encodeURIComponent(lines.join('\n'))}`;
-    const win = window.open(url, '_blank', 'noopener');
-    if (!win) window.location.href = url;
-
-    // Also keep a copy in the database (doesn't block the redirect)
-    fetch('/api/contact', {
+    // Also keep a copy in the database. keepalive lets it finish even if this tab navigates away,
+    // and the backend may need a few seconds to wake up on Render's free plan.
+    fetch(`${API_BASE}/api/contact`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form),
+      keepalive: true,
     }).catch(() => {});
+
+    // Open WhatsApp in a new tab (fall back to this tab if pop-ups are blocked)
+    const win = window.open(url, '_blank');
+    if (win) win.opener = null;
+    else window.location.href = url;
 
     setStatus({ state: 'success', msg: 'Opening WhatsApp… just press send in the chat.' });
     setForm(empty);
